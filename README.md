@@ -7,7 +7,7 @@ npm -i
 # run on local
 npm run start
 
-# a personal proyect
+# a personal project
 developed by Raul Mogollon
 
 # presented to

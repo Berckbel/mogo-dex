@@ -1,21 +1,82 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
 
-export default function App() {
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+
+import ListPokemonScreen from "./screens/ListPokemonScreen";
+import ReadPokemonScreen from "./screens/ReadPokemonScreen";
+import SearchPokemonScreen from "./screens/SearchPokemonScreen";
+import MenuPokemonScreen from "./screens/MenuPokemonScreen";
+
+const Stack = createStackNavigator();
+
+function MyStack() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Stack.Navigator>
+      <Stack.Screen
+        name="MenuPokemonScreen"
+        component={MenuPokemonScreen}
+        options={{
+          title: "Menu Pokemon",
+          headerStyle: {
+            backgroundColor: "#FF0000",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="SearchPokemonScreen"
+        component={SearchPokemonScreen}
+        options={{
+          title: "Buscar Pokemon",
+          headerStyle: {
+            backgroundColor: "#FF0000",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="ListPokemonScreen"
+        component={ListPokemonScreen}
+        options={{
+          title: "Lista Pokemon",
+          headerStyle: {
+            backgroundColor: "#FF0000",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="ReadPokemonScreen"
+        component={ReadPokemonScreen}
+        options={{
+          title: "Vista Pokemon",
+          headerStyle: {
+            backgroundColor: "#FF0000",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+        }}
+      />
+    </Stack.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MyStack />
+    </NavigationContainer>
+  );
+}
